@@ -2,7 +2,7 @@ galaxy_info:
   author: jbeard
   description: Manage NFS exports
   company: "jbeard.dev"
-  license: "license (BSD, MIT)"
+  license: "BSD"
   min_ansible_version: 2.4
   platforms:
   - name: EL
