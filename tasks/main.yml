@@ -1,0 +1,13 @@
+#
+# Ansible role for managing NFS exports.
+#
+---
+- name: "NFS | /etc/exports"
+  ansible.builtin.template:
+    dest: "{{ nfs_exports_path | default('/etc/exports') }}"
+    src: "{{ nfs_exports_template }}"
+    owner: root
+    group: "{{ nfs_exports_group | default('root') }}"
+    mode: 0644
+  notify:
+    - reload nfs exports

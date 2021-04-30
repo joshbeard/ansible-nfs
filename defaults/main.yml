@@ -1,0 +1,19 @@
+#
+# Default variables for homelab-nfs
+#
+
+# List of NFS exports - lines in /etc/exports
+nfs_exports: []
+
+# Ansible path to the template file to use for /etc/exports.
+# Defaults to using the role's.
+nfs_exports_template: exports
+
+# Group owner for the /etc/exports file.
+nfs_exports_group: root
+
+# Path to the NFS exports file
+nfs_exports_path: /etc/exports
+
+# Command to refresh NFS exports
+nfs_reload_command: exportfs -ra
