@@ -1,4 +1,4 @@
 # {{ ansible_managed }}
-{% for x in nfs_exports %}
+{% for x in nfs_exports_file %}
 {{ x }}
 {% endfor %}

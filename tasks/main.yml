@@ -6,8 +6,29 @@
   ansible.builtin.template:
     dest: "{{ nfs_exports_path | default('/etc/exports') }}"
     src: "{{ nfs_exports_template }}"
-    owner: root
+    owner: "{{ nfs_exports_owner | default('root') }}"
     group: "{{ nfs_exports_group | default('root') }}"
     mode: 0644
+  notify:
+    - reload nfs exports
+
+- name: "/etc/exports.d directory"
+  ansible.builtin.file:
+    path: "{{ nfs_exports_d }}"
+    state: directory
+    owner: "{{ nfs_exports_owner | default('root') }}"
+    group: "{{ nfs_exports_group | default('root') }}"
+    mode: 0755
+
+- name: "NFS Export in /etc/exports.d/"
+  ansible.builtin.template:
+    dest: "{{ nfs_exports_d | default('/etc/exports.d') }}/{{ export.key }}.exports"
+    src: "{{ nfs_exports_template }}"
+    owner: "{{ nfs_exports_owner | default('root') }}"
+    group: "{{ nfs_exports_group | default('root') }}"
+    mode: 0644
+  vars:
+    export: "{{ lookup('dict', item) }}"
+  loop: "{{ nfs_exports }}"
   notify:
     - reload nfs exports
