@@ -9,7 +9,7 @@
     owner: "{{ nfs_exports_owner | default('root') }}"
     group: "{{ nfs_exports_group | default('root') }}"
     mode: 0644
-  when: "{{ nfs_exports_file }}"
+  when: nfs_exports_file
   notify:
     - reload nfs exports
 
@@ -30,7 +30,7 @@
     mode: 0644
   vars:
     export: "{{ lookup('dict', item) }}"
-  when: "{{ nfs_exports }}"
+  when: nfs_exports
   loop: "{{ nfs_exports }}"
   notify:
     - reload nfs exports
