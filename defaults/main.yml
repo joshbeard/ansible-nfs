@@ -6,10 +6,10 @@
 #   Eg.
 #     nfs_exports:
 #       - media: /store/media 10.0.10.0/24
-nfs_exports: []
+#nfs_exports: []
 
 # List of lines for /etc/exports file
-nfs_exports_file: []
+#nfs_exports_file: []
 
 # Ansible path to the template file to use for /etc/exports.
 # Defaults to using the role's.
