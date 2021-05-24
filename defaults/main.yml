@@ -1,11 +1,11 @@
 #
-# Default variables for homelab-nfs
+# Default variables for jbeard.nfs
 #
 
 # List of NFS exports - creates files under /etc/exports.d/
 #   Eg.
 #     nfs_exports:
-#       - media: /store/media 10.0.13.0/24
+#       - media: /store/media 10.0.10.0/24
 nfs_exports: []
 
 # List of lines for /etc/exports file

@@ -1,13 +1,8 @@
-# jbeard.dev / Homelab / Ansible / nfs
+# jbeard.nfs Ansible Role
 
-Ansible role for managing _nfs_ on my Homelab systems.
-
-This is a _very_ rudimentary role with limited features.
-
-__NOTE:__ This module isn't intended for general public use.
+Ansible role for managing _nfs_ exports.
 
 Refer to [`defaults/main.yml`](defaults/main.yml) for variables.
-
 
 ## Variables
 
@@ -19,9 +14,9 @@ create under `/etc/exports.d/`
 ```yaml
 nfs_exports:
   # This will create /etc/exports.d/movies.exports
-  - movies: /store/movies 10.0.13.0/24(sync,rw,no_subtree_check,no_root_squash)
+  - movies: /store/movies 10.0.10.0/24(sync,rw,no_subtree_check,no_root_squash)
   # This will create /etc/exports.d/tvshows.exports
-  - tvshows: /store/tvshows 10.0.13.0/24(sync,rw,no_subtree_check,no_root_squash)
+  - tvshows: /store/tvshows 10.0.10.0/24(sync,rw,no_subtree_check,no_root_squash)
 ```
 
 ### `nfs_exports_file`
